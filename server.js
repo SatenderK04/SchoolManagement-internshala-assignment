@@ -9,7 +9,7 @@ dotenv.config();
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use("/", schoolRoutes);
+app.use("https://schoolmanagement-7eg8.onrender.com", schoolRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);

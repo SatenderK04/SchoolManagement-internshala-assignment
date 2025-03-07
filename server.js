@@ -3,13 +3,16 @@ import cors from "cors";
 import dotenv from "dotenv";
 import schoolRoutes from "./routes/schoolRoutes.js";
 
+dotenv.config();
+
 const app = express();
 const PORT = process.env.PORT || 8080;
-dotenv.config();
-app.use(express.urlencoded({ extended: true }));
-app.use(cors());
 
-app.use("/https://schoolmanagement-hbn0.onrender.com", schoolRoutes);
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use("/api/schools", schoolRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);
